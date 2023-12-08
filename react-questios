@@ -1,0 +1,147 @@
+1.	How can we fetch API data without using useEffect hook?
+Sol= 
+1) By using useState we can fetch data from the api.The useState hook only called  at once before the component mounts and it store the data in the state and assess it
+Example
+import React, { useState } from 'react';
+
+function MyComponent() {
+  const [data, setData] = useState(() => {
+    fetch('https://jsonplaceholder.typicode.com/posts/1')
+      .then((response) => response.json())
+      .then((responseData) => setData(responseData));
+    return {};
+  }, []);
+
+  return <div>{data.title}</div>;
+}
+2) Another way to fetch data to create the custom hook to handle the data form the api
+import React, { useState } from 'react';
+
+function useFetchData(url) {
+  const [data, setData] = useState(null);
+
+  fetch(url)
+    .then((response) => response.json())
+    .then((responseData) => setData(responseData));
+
+  return data;
+}
+
+function MyComponent() {
+  const data = useFetchData('https://jsonplaceholder.typicode.com/posts/1');
+
+  return <div>{data?.title}</div>;
+}
+
+2. What are the security measures which should be considered during development?
+Sol ==  
+=>Encrypt sensitive user data
+=>Client-side and server-side validation
+=>Sanitize user input
+=>Secure connections that contain cookie data
+
+3. Can we return setData inside a component?
+Sol=> No we can’t use the setData inside the return jsx code. But we can the setData inside the component
+
+4. Multiple useEffects in a same component?
+Sol => Yes, we can use the multiple useEffect hooks inside the same component, it helps to handle the multiple side effects of an state of the React component
+
+5. Higher order components or custom hooks? Which approach will you follow.
+Sol => 
+
+6. Why do we need currying in JS? Explain with example.
+Sol => Reusability of code, flexibilit
+function add(a, b) {
+  return a + b;
+}
+
+const curriedAdd = add.bind(null, 1);
+
+console.log(curriedAdd(2)); // 3
+
+console.log(curriedAdd(3)); // 4
+
+7. Explain Array prototyping, generators.
+Array of prototyping
+	The array of prototyping is a reference to the another object called protype object
+	This allow to add new properties and methods ex= add, sort,push array methods
+	It is used to add new feautures to the existing object
+	*Generater
+	Generaters are used to paused and Resume the state
+	It incated with the *
+
+8. Explain Middlewares in React which you have used?
+=>middleware are used to handle the request and response to web application 
+=>It is used for the login authentication of the component
+
+9. Function closures and bind method difference.
+10. Explain service and web workers.
+11. Write a program to fetch real time data for a cricket/football match.
+12. Statess components?
+13. How do you fetch multiple APIs in a single time.
+14. Interceptors in axios library?
+15. React suspense?
+16. How will you select between SSR and CSR for you application? What parameters will you consider.
+17. What is A11y issues? How do you handle it?
+18. Box model, CSS animation, SASS variables and mixins in CSS.
+19. How authentication works with JWT?
+20. What is selective hydration?
+21. Crawlers, indexing a page and what are the ways?
+22. Explain redux architecture.
+23. How will you set redirects using axios library.
+24. Different types of object creation.
+25. Explain hoisting, TDZ.
+26. Explain IIFE with example.
+27. What is obj literal and JSON obj.
+28. First class functions.
+29. Error pages creation
+30. Scopes in JS
+31. Event Loop - Task/MicroTask Queues.
+32. Second Largest numb from array without using Math, sort functions.
+33. Synthetic events
+34. Cookies, localStorage and sessionStorage
+35. How Babel works?
+36. Explain webpack, parcel and some of its features.
+37. Challenges with react js
+38. Memoization techniques, pure functions and pure components.
+39. HTTP methods...explain
+40. Call, apply and bind
+41. Arrow functions, anonymous functions,this keyword
+42. ES6 features.
+43. Create a traingle using CSS
+44. Explain rate limiting and write a small code to demonstrate.
+45. ESLint and security plugins used in your proj?
+46. CORS, CSP and XSS explain
+47. Tree shaking, debouncing and throttling
+48. Write a pgrm for form validation without using any library
+49. Array operations
+50. Nested array operations, flattening of an array likewise
+51. Performance optimization techniques explain
+52. Shallow and deep copy..explain how will you create it
+53. Various hooks syntax useParam, useReducer, useQuery, useContext and many more.
+React Questions(Like the comment pls)
+
+- Explain Flux.
+- references in React
+- synthetic events in React
+- Real DOM vs Virtual DOM
+- React router & advantages
+- Redux different from Flux?
+- How arrow function is used
+- Why can’t browsers read JSX
+- significance of Store in Redux
+- concept of a Context in React
+- server-side & client-side rendering
+- handle asynchronous data loading
+- concept of a Virtual DOM in React
+- three principles that Redux follows
+- Higher Order Components and usage
+
+- handle security in a React application
+- handle optimization in a large application
+- embed two or more components into one
+- “In React, everything is a component.” Explain
+- different phases of React component’s lifecycle
+- track the unmounting of a functional componentsss
+
+
